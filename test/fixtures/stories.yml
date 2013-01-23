@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  story_name: MyString
+  story_description: MyString
+  story_status: MyString
+  story_priority: MyString
+
+two:
+  story_name: MyString
+  story_description: MyString
+  story_status: MyString
+  story_priority: MyString

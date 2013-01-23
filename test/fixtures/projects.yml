@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_name: MyString
+  project_status: MyString
+  project_duration_in_days: 1
+  no_of_members: 1
+
+two:
+  project_name: MyString
+  project_status: MyString
+  project_duration_in_days: 1
+  no_of_members: 1
