@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
 
   has_many :projects, :through => :user_has_projects
 
-  attr_accessible :crypted_password, :email, :password_salt, :persistence_token, :user_name, :user_role
+  attr_accessible :crypted_password, :email, :password_salt, :persistence_token, :username, :password, :password_confirmation
 end

@@ -1,18 +1,21 @@
 ProjectManagementSystem::Application.routes.draw do
+
+  resources :tasks
+  resources :stories
   resources :projects
 
 
-  resources :tasks
-
-
-  resources :stories
-
+  resource :account, :controller => "users"
 
   resources :users, :user_sessions
 
   match 'login' => 'user_sessions#new', :as => :login
 
   match 'logout' => 'user_sessions#destroy', :as => :logout
+
+  match 'signup' => 'users#new', :as => :signup
+
+  root :to => 'users#new'
 
 
   # The priority is based upon order of creation:

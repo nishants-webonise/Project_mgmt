@@ -6,13 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:user_name) %></th>
+      <th><%= model_class.human_attribute_name(:username) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
-      <!--<th><%#= model_class.human_attribute_name(:crypted_password) %></th>-->
-      <!--<th><%#= model_class.human_attribute_name(:password_salt) %></th>-->
-      <!--<th><%#= model_class.human_attribute_name(:persistence_token) %></th>-->
-      <!--<th><%#= model_class.human_attribute_name(:user_role) %></th>-->
-      <!--<th><%#= model_class.human_attribute_name(:created_at) %></th>-->
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,13 +15,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
-        <td><%= user.user_name %></td>
+        <td><%= user.username %></td>
         <td><%= user.email %></td>
-        <!--<td><%#= user.crypted_password %></td>-->
-        <!--<td><%#= user.password_salt %></td>-->
-        <!--<td><%#= user.persistence_token %></td>-->
-        <!--<td><%#= user.user_role %></td>-->
-        <!--<td><%#=l user.created_at %></td>-->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-mini' %>

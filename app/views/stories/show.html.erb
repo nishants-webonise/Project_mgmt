@@ -1,25 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Story -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Story name:</b>
-  <%= @story.story_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:story_name) %>:</strong></dt>
+  <dd><%= @story.story_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:story_description) %>:</strong></dt>
+  <dd><%= @story.story_description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:story_status) %>:</strong></dt>
+  <dd><%= @story.story_status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:story_priority) %>:</strong></dt>
+  <dd><%= @story.story_priority %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:project_id) %>:</strong></dt>
+  <dd><%= @story.project_id %></dd>
+</dl>
 
-<p>
-  <b>Story description:</b>
-  <%= @story.story_description %>
-</p>
-
-<p>
-  <b>Story status:</b>
-  <%= @story.story_status %>
-</p>
-
-<p>
-  <b>Story priority:</b>
-  <%= @story.story_priority %>
-</p>
-
-
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              stories_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_story_path(@story), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              story_path(@story),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

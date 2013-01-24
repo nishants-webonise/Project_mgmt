@@ -1,29 +1,32 @@
-<%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @task, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :task_description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :task_description, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :task_status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :task_status, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :task_priority, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :task_priority, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :story_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :story_id, :class => 'number_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :task_description %><br />
-    <%= f.text_field :task_description %>
-  </div>
-  <div class="field">
-    <%= f.label :task_status %><br />
-    <%= f.text_field :task_status %>
-  </div>
-  <div class="field">
-    <%= f.label :task_priority %><br />
-    <%= f.text_field :task_priority %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                tasks_path, :class => 'btn' %>
   </div>
 <% end %>

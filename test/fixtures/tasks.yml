@@ -4,8 +4,10 @@ one:
   task_description: MyString
   task_status: MyString
   task_priority: MyString
+  story_id: 1
 
 two:
   task_description: MyString
   task_status: MyString
   task_priority: MyString
+  story_id: 1

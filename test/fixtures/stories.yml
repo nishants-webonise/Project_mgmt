@@ -5,9 +5,11 @@ one:
   story_description: MyString
   story_status: MyString
   story_priority: MyString
+  project_id: 1
 
 two:
   story_name: MyString
   story_description: MyString
   story_status: MyString
   story_priority: MyString
+  project_id: 1

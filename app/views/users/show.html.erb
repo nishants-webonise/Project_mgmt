@@ -1,31 +1,117 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human %> Dashboard</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:user_name) %>:</strong></dt>
-  <dd><%= @user.user_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @user.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:crypted_password) %>:</strong></dt>
-  <dd><%= @user.crypted_password %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:password_salt) %>:</strong></dt>
-  <dd><%= @user.password_salt %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:persistence_token) %>:</strong></dt>
-  <dd><%= @user.persistence_token %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_role) %>:</strong></dt>
-  <dd><%= @user.user_role %></dd>
-</dl>
+<div id="site-wrapper">
+<div id="site">
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+<div id="breadcrumb-bar">
+  <div style="margin: 1px 10px">
+
+    <b>Dashboard</b>
+  </div>
+</div>
+
+<div id="site-content">
+
+  <table width="100%" class="layout">
+    <tbody><tr>
+      <td>
+
+        <h2>Hello, <%= @user.username %> !</h2>
+
+        <div id="welcome-wrapper">
+          <div id="welcome">
+            <div style="position: absolute; top: 5px; right: 5px">
+              <img width="15" height="15" id="close-welcome-button" onmouseover="this.src='https://d1zvd2d754ag59.cloudfront.net/img/dialog_close_box2.gif'" onmouseout="this.src='https://d1zvd2d754ag59.cloudfront.net/img/dialog_close_box.gif'" src="https://d1zvd2d754ag59.cloudfront.net/img/dialog_close_box.gif" title="Close">
+            </div>
+
+            <h3>Welcome to Gravity</h3>
+
+
+          </div>
+        </div>
+
+      </td>
+      <td width="40"></td>
+      <td width="335">
+
+        <div id="profile-tool">
+
+          <table width="100%" cellspacing="0" class="layout">
+            <tbody><tr>
+              <td width="210">
+
+                <div style="padding: 2px; width: 200px;">
+                  <table width="100%" cellspacing="0" class="layout">
+                    <tbody><tr valign="top">
+                      <td width="40">
+                        <div style="padding: 3px"><img width="32" height="32" src="https://secure.gravatar.com/avatar/a455033076230c7964aa72a4dfa83caa?s=32&amp;d=https%3A%2F%2Fd1zvd2d754ag59.cloudfront.net%2Fimg%2Fdefault-avatar-32.png"></div>
+                      </td>
+                      <td width="8"></td>
+                      <td>
+                        <div style="font-size: 110%; font-weight: bold; margin: 3px 0 2px 0"><%= @user.username %></div>
+                        <div style="width: 180px; overflow: hidden; text-overflow: ellipsis; -o-text-overflow: ellipsis"><%= @user.email %></div>
+                      </td>
+                    </tr>
+                    </tbody></table>
+                </div>
+
+              </td>
+              <td width="10"></td>
+            </tr>
+            </tbody></table>
+
+        </div>
+
+
+
+
+        <div class="project-container-header project-container-header-blue">
+          <div class="project-container-header-left">
+            <img src="https://d1zvd2d754ag59.cloudfront.net/img/user.png" style="vertical-align: text-bottom" class="icon">
+            <a href="/user/1/projects">My Projects</a>
+          </div>
+          <div class="project-container-header-right">
+            <button onclick="self.location.href='/projects/new'" class="project-container-add">
+              <span>+</span> New Project
+            </button>
+          </div>
+        </div>
+     </td>
+    </tr>
+    </tbody></table>
+  <script type="text/javascript" async="" id="gauges-tracker" data-site-id="508557b6f5a1f53fc9000031" src="//secure.gaug.es/track.js"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script>
+    var closeWelcomeUrl = '/home/closeWelcome';
+    var changeTabUrl = '/home/changetab'; //'/home/index?action=changeTab';
+    var changeOrderUrl = '/home/changeorder'; //'/home/index?action=changeTab';
+    var dashboardTasksAndIssuesUrl = '/home/getdashboardtasksandissueshtml';
+</script>
+
+</div>
+<div id="site-footer"></div>
+</div>
+<div id="site-bottom">
+  &copy; Copyright 2013 Webonise Lab Pvt. Ltd. - All rights reserved.
+</div>
+
+</div>
+<!--<dl class="dl-horizontal">-->
+  <!--<dt><strong><%#= model_class.human_attribute_name(:username) %>:</strong></dt>-->
+  <!--<dd><%#= @user.username %></dd>-->
+  <!--<dt><strong><%#= model_class.human_attribute_name(:email) %>:</strong></dt>-->
+  <!--<dd><%#= @user.email %></dd>-->
+<!--</dl>-->
+
+<!--<div class="form-actions">-->
+  <%#= link_to t('.back', :default => t("helpers.links.back")),
               users_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%#= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_user_path(@user), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              user_path(@user),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+  <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+#              user_path(@user),
+#              :method => 'delete',
+#              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
-</div>
+<!--</div>-->

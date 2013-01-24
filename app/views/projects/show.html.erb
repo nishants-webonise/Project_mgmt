@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Project -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Project name:</b>
-  <%= @project.project_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:project_name) %>:</strong></dt>
+  <dd><%= @project.project_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:project_status) %>:</strong></dt>
+  <dd><%= @project.project_status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:project_duration_in_days) %>:</strong></dt>
+  <dd><%= @project.project_duration_in_days %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no_of_members) %>:</strong></dt>
+  <dd><%= @project.no_of_members %></dd>
+</dl>
 
-<p>
-  <b>Project status:</b>
-  <%= @project.project_status %>
-</p>
-
-<p>
-  <b>Project duration in days:</b>
-  <%= @project.project_duration_in_days %>
-</p>
-
-<p>
-  <b>No of members:</b>
-  <%= @project.no_of_members %>
-</p>
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              projects_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_project_path(@project), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              project_path(@project),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
