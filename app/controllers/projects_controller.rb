@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    @user = User.find(params[:user_id])
     @projects = Project.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @user = User.find(params[:user_id])
     @project = Project.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
+    @user = User.find(params[:user_id])
     @project = Project.new
 
     respond_to do |format|
@@ -40,11 +43,15 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    @user = User.find(params[:user_id])
     @project = Project.new(params[:project])
+    @project.user_id = @user.id
+
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        #format.html { redirect_to user_project_path(@user, @project), notice: 'Project was successfully created.' }
+        format.html { redirect_to account_path, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }
@@ -76,7 +83,7 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url }
+      format.html { redirect_to user_project_path }
       format.json { head :no_content }
     end
   end

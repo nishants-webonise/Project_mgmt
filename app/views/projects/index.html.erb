@@ -17,7 +17,7 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= link_to project.id, project_path(project) %></td>
+        <td><%= link_to project.id, user_projects_path(project) %></td>
         <td><%= project.project_name %></td>
         <td><%= project.project_status %></td>
         <td><%= project.project_duration_in_days %></td>
@@ -25,9 +25,9 @@
         <td><%=l project.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_project_path(project), :class => 'btn btn-mini' %>
+                      edit_user_project_path(project), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      project_path(project),
+                      user_project_path(project),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
@@ -38,5 +38,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_project_path,
+            new_user_project_path,
             :class => 'btn btn-primary' %>

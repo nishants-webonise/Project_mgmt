@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user
+    @projects = Project.find_all_by_user_id(@user)
   end
 
   def edit

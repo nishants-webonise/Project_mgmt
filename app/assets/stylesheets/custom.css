@@ -1,3 +1,23 @@
 .links{
     margin-top: 50px;
 }
+
+#proj_footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #98d9ee;
+    height: 60px;
+}
+
+.proj_footer_container  {
+    display: block;
+}
+
+.proj_muted{
+    float: right;
+    margin-right: 0px;
+    color: #000000;
+    margin-top: 35px;
+}

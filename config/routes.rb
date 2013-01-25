@@ -2,12 +2,16 @@ ProjectManagementSystem::Application.routes.draw do
 
   resources :tasks
   resources :stories
-  resources :projects
-
+  #resources :projects
+  resources :user_sessions
 
   resource :account, :controller => "users"
 
-  resources :users, :user_sessions
+  resources :users do
+    resources :projects
+  end
+
+
 
   match 'login' => 'user_sessions#new', :as => :login
 

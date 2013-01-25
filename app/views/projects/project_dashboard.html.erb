@@ -1,0 +1,122 @@
+<div id="site-content">
+
+
+  <h2>Project: Test</h2>
+
+  <div>
+    <ul id="project-tabs">
+      <li>
+        <a href="/project/49774">Project</a>
+      </li><li class="sel">
+      <a href="/project/49774/stories">Stories</a>
+    </li><li>
+      <a href="/project/49774/releases">Releases</a>
+    </li><li>
+      <a href="/project/49774/reports">Reports</a>
+    </li><li>
+      <a href="/project/49774/issues">Issues/Bugs</a>
+    </li><li>
+      <a href="/project/49774/history">History</a>
+    </li>
+    </ul>
+    <div>
+
+      <div style="margin-bottom: 0" class="tbar">
+
+        <button id="add-story-button" class="clean">
+          <img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/script_add.png">
+          Add Story
+        </button>
+
+        <button id="add-iteration-button" class="clean">
+          <img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/date_add.png">
+          Add Iteration / Sprint
+        </button>
+
+
+        <button id="task-board-button" class="clean">
+          <img width="16" height="16" src="https://d2qpxxzb9974mn.cloudfront.net/img/application_view_tile.png">
+          Task Board
+        </button>
+
+        <div style="float: right; white-space: nowrap">
+          Show:
+          <select onchange="self.location.href=this.value">
+            <option value="/project/49774/stories" selected="selected">Current</option>
+            <option value="/project/49774/stories?show=all">All</option>
+          </select>
+        </div>
+      </div>
+
+      <style>
+
+          #labels-section-wrapper .goog-scrollfloater {
+              height: 100%;
+              overflow: auto;
+          }
+
+      </style><table width="100%" cellspacing="0" class="layout">
+      <tbody><tr>
+        <td width="170">
+          <div style="padding-top: 20px">
+            <div id="labels-section-wrapper">
+              <div id="labels-section" class="section goog-scrollfloater">
+                <h4 style="">
+                  <div style="float: right; font-weight: normal">
+                    <a href="/project/49774/labels">Edit</a>
+                  </div>
+                  Labels
+                </h4>
+
+                <div id="labels" class="clean-scroller">
+
+                </div>
+                <p style="font-size: 12px; color: #777">Drag labels to stories to apply.</p>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td width="15"></td>
+        <td>
+
+          <div id="filter-msg-wrapper">
+            <div id="filter-msg"></div>
+
+            <div>
+              <a href="#">Show all stories</a>
+            </div>
+          </div>
+
+          <div id="stories" class="stories-allow-highlighting">
+
+
+            <div style="font-size: 10px; color: #456; overflow: hidden" class="insert-iteration">
+              <div style="padding: 4px 0">
+                <a href="#" onclick="return false" id="insert-iteration-link-0" style="text-decoration: none" class="insert-iteration-link">Click to insert iteration</a>
+              </div>
+            </div>
+
+
+
+            <div id="iteration-0" class="iteration">
+              <div style="background: url(https://d1ayhg76ch0znm.cloudfront.net/img/green-grad.png); border: solid 1px #bfedd4" class="iteration-header">
+                <div style="float: left">Unscheduled Stories (Backlog)</div>
+                <div style="float: right">Cost: <span id="iteration-0-cost">0</span></div>
+              </div>
+
+              <div class="iteration-body">
+
+                <div class="iteration-body-empty">No stories. Drag stories here to un-scheduled them.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </td>
+      </tr>
+      </tbody></table>
+
+    </div>
+  </div>
+
+</div>
