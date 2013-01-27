@@ -1,94 +1,143 @@
 <%- model_class = User -%>
-<div class="page-header">
+<!-- <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %> Dashboard</h1>
-</div>
+</div> -->
 
 <div id="site-wrapper">
 <div id="site">
-
+<div id="breadcrumb-bar">  
+  <div style="margin: 1px 20px">
+    
+    <b>User Dashboard</b>
+  </div>
+</div>
 <div id="site-content">
 
   <table width="100%" class="layout">
     <tbody><tr>
       <td>
 
-        <h2>Hello, <%= @user.username %> !</h2>
-
-        <div id="welcome-wrapper">
-          <div id="welcome">
-            <div style="position: absolute; top: 5px; right: 5px">
-              <img width="15" height="15" id="close-welcome-button" onmouseover="this.src='https://d1zvd2d754ag59.cloudfront.net/img/dialog_close_box2.gif'" onmouseout="this.src='https://d1zvd2d754ag59.cloudfront.net/img/dialog_close_box.gif'" src="https://d1zvd2d754ag59.cloudfront.net/img/dialog_close_box.gif" title="Close">
-            </div>
-
-            <h4>Welcome to Project Management System</h4>
+        <h2>Hello, <%= @user.username.capitalize %> !</h2>
 
 
-          </div>
+<div id="welcome-wrapper">
+      <div id="welcome">       
+        <h4>Welcome to Project Management System</h4>
+        
+        <div style="padding: 5px">
+          
+          <p><b>To get started: </b></p>
+          <ul>
+            <li>
+              <h5>Create a project</h5>
+              <p>
+              Click the [New Project] button under your name (or company) or, if you 
+              were invited to a project, just click on that project.
+              </p>
+              
+            </li>
+            <!-- <li>
+              <h5>Invite participants</h5>
+              <p>Click [Invite Participants] on the project page and enter the email addresses of anyone you wish to invite. 
+              They will receive an email prompting them to sign in.</p> 
+            </li>
+            <li>
+              <h5>Define some user stories</h5>
+              <p>
+                Click on the [Stories] tab for the project and start adding them.
+              </p>  
+            </li>
+            <li>
+              <h5>Schedule them in iterations</h5>
+              <p>
+                It's easy, just create one or more iterations and drag and drop stories into them.
+              </p>
+              
+            </li>
+            <li>
+              <h5>Get to work!</h5>
+              <p>Every story should be defined by a few acceptance tests. To track progress, simply
+              create some acceptance tests for each story and pass them as you complete them.</p>
+            </li>
+          
+         -->  
+          </ul>
         </div>
-
+      </div>
+    </div>
       </td>
+      
       <td width="40"></td>
+      
       <td width="335">
-
-        <div id="profile-tool">
-
-          <table width="100%" cellspacing="0" class="layout">
-            <tbody><tr>
+      
+              <div id="profile-tool">
+                
+          <table width="100%" class="layout" cellspacing="0">
+            <tbody>
+              <tr>
               <td width="210">
-
-                <div style="padding: 2px; width: 200px;">
-                  <table width="100%" cellspacing="0" class="layout">
-                    <tbody><tr valign="top">
-                      <td width="40">
-                        <div style="padding: 3px"><img width="32" height="32" src="https://secure.gravatar.com/avatar/a455033076230c7964aa72a4dfa83caa?s=32&amp;d=https%3A%2F%2Fd1zvd2d754ag59.cloudfront.net%2Fimg%2Fdefault-avatar-32.png"></div>
-                      </td>
-                      <td width="8"></td>
-                      <td>
-                        <div style="font-size: 110%; font-weight: bold; margin: 3px 0 2px 0"><%= @user.username %></div>
-                        <div style="width: 180px; overflow: hidden; text-overflow: ellipsis; -o-text-overflow: ellipsis"><%= @user.email %></div>
-                      </td>
-                    </tr>
-                    </tbody></table>
-                </div>
-
-              </td>
-              <td width="10"></td>
-            </tr>
+              
+          <div style="padding: 2px; width: 200px;">
+            <table width="100%" class="layout" cellspacing="0">
+              <tbody>
+                <tr valign="top">
+                <td width="40">
+                  <div style="padding: 3px">
+                    <img width="32" height="32" src="assets/avatar.png">
+                    </div>
+                </td>
+                <td width="8"></td>
+                <td>
+                  <div style="font-size: 110%; font-weight: bold; margin: 3px 0 2px 0"><%= @user.username.capitalize %></div>
+                  <div style="width: 180px; overflow: hidden; text-overflow: ellipsis; -o-text-overflow: ellipsis"><%= @user.email %></div>
+                </td>
+              </tr>
             </tbody></table>
+          </div>
+          
+              </td>              
+            </tr>
+          </tbody></table>
+          
+              </div>
 
+          
+
+          
+     <div class="project-container-header project-container-header-blue">
+        <div class="project-container-header-left">
+          <img class="icon" style="vertical-align: text-bottom" src="assets/user.png">
+          <b>My Projects</b>
         </div>
-
-
-
-
-        <div class="project-container-header project-container-header-blue">
-          <div class="project-container-header-left">
-            <img src="https://d1zvd2d754ag59.cloudfront.net/img/user.png" style="vertical-align: text-bottom" class="icon">
-            <a>My Projects</a>
-            <ul>
+        <div class="project-container-header-right">
+            <%= link_to '+ New Project', new_user_project_path(@user), :class => "btn btn-mini project-container-add" %>
+        </div>
+      </div>
+     
+      <div class="project-container-projects">
+        <div class="project-container-project">
+      <table width="100%" class="layout">
+        <tbody><tr>
+          <td>
+            
               <% @projects.each do |proj| %>
-              <li>
+              <tr><td>
                 <%= link_to proj.project_name, user_project_path(@user, proj.id) %>
-              </li>
+              </td></tr>
               <% end %>
-            </ul>
-          </div>
-          <div class="project-container-header-right">
-            <!--<button onclick='self.location.href="/users/<%#=@user.id%>/projects/new"' class="project-container-add">-->
-              <!--<span>+</span>New Project-->
-            <!--</button>-->
-            <%= link_to ' + New Project', new_user_project_path(@user), :class => " btn project-container-add" %>
-          </div>
-        </div>
-     </td>
-    </tr>
+
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+        
+      </div>        
+          </td>         </tr>
     </tbody></table>
 </div>
-<!--<div id="site-footer"></div>-->
+
 </div>
-<!--<div id="site-bottom">-->
-  <!--&copy; Copyright 2013 Webonise Lab Pvt. Ltd. - All rights reserved.-->
-<!--</div>-->
 
 </div>
 <!--<dl class="dl-horizontal">-->
@@ -98,14 +147,3 @@
   <!--<dd><%#= @user.email %></dd>-->
 <!--</dl>-->
 
-<!--<div class="form-actions">-->
-  <%#= link_to t('.back', :default => t("helpers.links.back")),
-              users_path, :class => 'btn'  %>
-  <%#= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_user_path(@user), :class => 'btn' %>
-  <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
-#              user_path(@user),
-#              :method => 'delete',
-#              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-<!--</div>-->
