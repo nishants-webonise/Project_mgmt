@@ -1,30 +1,112 @@
-<%= form_for @project, :url => user_projects_path, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :project_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :project_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :project_status, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :project_status, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :project_duration_in_days, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :project_duration_in_days, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :no_of_members, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :no_of_members, :class => 'number_field' %>
+<%#= form_for @project, :url => user_projects_path, :html => { :class => 'form-horizontal' } do |f| %>
+  <!--<div class="control-group">-->
+    <%#= f.label :project_name, :class => 'control-label' %>
+    <!--<div class="controls">-->
+      <%#= f.text_field :project_name, :class => 'text_field' %>
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="control-group">-->
+    <!--<%#= f.label :project_status, :class => 'control-label' %>-->
+    <!--<div class="controls">-->
+      <%#= f.text_field :project_status, :class => 'text_field' %>
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="control-group">-->
+    <!--<%#= f.label :project_duration_in_days, :class => 'control-label' %>-->
+    <!--<div class="controls">-->
+      <%#= f.number_field :project_duration_in_days, :class => 'number_field' %>
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="control-group">-->
+    <!--<%#= f.label :no_of_members, :class => 'control-label' %>-->
+    <!--<div class="controls">-->
+      <%#= f.number_field :no_of_members, :class => 'number_field' %>
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="form-actions">-->
+    <!--<%#= f.submit nil, :class => 'btn btn-primary' %>-->
+  <!--</div>-->
+<%# end %>
+
+
+<div style="-webkit-border-radius: 4px; -moz-border-radius: 4px" id="page">
+
+  <div id="breadcrumb-bar">
+
+    <div style="margin: 3px 10px">
+
+      <b>User Dashboard</b>
+      <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
+      <!--<a href="/user/98089">User: Nishant Samel</a>-->
+      <b>User : <%= @user.username.capitalize %></b>
+      <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="assets/icon_triangle.gif">
+      <b>Create Project</b>
+
     </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+  <div id="content">
+
+    <h2>Create Project</h2>
+
+    <form method="POST" action=user_projects_path>
+      <table class="form">
+        <tbody><tr>
+          <td><label>Project Name:</label></td>
+          <td><input maxlength="40" style="width: 250px" class="text" name="Name"></td>
+        </tr>
+        <!--<tr valign="top">-->
+          <!--<td style="padding-top: 5px"><label style="padding-top: 3px">Visibility:</label></td>-->
+          <!--<td>-->
+
+            <!--<div style="border: 1px solid #ddd; width: 350px; padding: 7px; margin: 5px 0; -moz-border-radius: 4px; ">-->
+              <!--<table cellspacing="0" class="layout">-->
+                <!--<tbody><tr valign="top" style="border: 1px solid #eee">-->
+                  <!--<td width="30">-->
+                    <!--<input type="radio" value="0" style="vertical-align: text-bottom; margin-right: 4px" name="Visibility">-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--<div>-->
+                      <!--<img style="vertical-align: text-bottom" src="https://d1zvd2d754ag59.cloudfront.net/img/lock.png">-->
+                      <!--<b>Private</b> - Visible only to participants-->
+                    <!--</div>-->
+
+                  <!--</td>-->
+                <!--</tr>-->
+                <!--</tbody></table>-->
+            <!--</div>-->
+
+            <!--<div style="border: 1px solid #ddd; width: 350px; padding: 7px; margin: 5px 0; -moz-border-radius: 4px">-->
+              <!--<table width="100%" cellspacing="0" class="layout">-->
+                <!--<tbody><tr valign="top">-->
+                  <!--<td width="30"><input type="radio" style="vertical-align: text-bottom; margin-right: 4px" checked="" value="1" name="Visibility"></td>-->
+                  <!--<td>-->
+                    <!--<img style="vertical-align: text-bottom" src="https://d1zvd2d754ag59.cloudfront.net/img/world.png">-->
+                    <!--<b>Public</b> - Visible to anyone on the internet-->
+                  <!--</td>-->
+                <!--</tr>-->
+                <!--</tbody></table>-->
+            <!--</div>-->
+
+          <!--</td>-->
+        <!--</tr>-->
+
+        <tr>
+          <td></td>
+          <td><button type="submit">Create Project</button></td>
+        </tr>
+        </tbody></table>
+    </form>
+
+    <!--<div style="display: none" id="add-company-project">-->
+      <!--<div style="padding: 10px; font-size: 115%">-->
+        <!--<p>Select the company account you would like to use for this project?</p>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
   </div>
-<% end %>
+</div>
+
+
