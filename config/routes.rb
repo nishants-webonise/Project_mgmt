@@ -1,14 +1,16 @@
 ProjectManagementSystem::Application.routes.draw do
 
   resources :tasks
-  resources :stories
+  #resources :stories
   #resources :projects
   resources :user_sessions
 
   resource :account, :controller => "users"
 
   resources :users do
-    resources :projects
+    resources :projects do
+      resources :stories
+    end
   end
 
 

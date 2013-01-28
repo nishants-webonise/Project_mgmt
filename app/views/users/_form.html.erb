@@ -30,3 +30,15 @@
                 users_path, :class => 'btn' %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var user_email = new LiveValidation('user_email');
+        user_email.add( Validate.Presence );
+        user_email.add( Validate.Email );
+
+        var user_username = new LiveValidation('user_username');
+        user_username.add( Validate.Presence );
+    });
+</script>

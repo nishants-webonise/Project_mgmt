@@ -8,7 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:project_name) %></th>
       <th><%= model_class.human_attribute_name(:project_status) %></th>
-      <th><%= model_class.human_attribute_name(:project_duration_in_days) %></th>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
       <th><%= model_class.human_attribute_name(:no_of_members) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -20,7 +20,7 @@
         <td><%= link_to project.id, user_projects_path(project) %></td>
         <td><%= project.project_name %></td>
         <td><%= project.project_status %></td>
-        <td><%= project.project_duration_in_days %></td>
+        <td><%= project.start_date %></td>
         <td><%= project.no_of_members %></td>
         <td><%=l project.created_at %></td>
         <td>
