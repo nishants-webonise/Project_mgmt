@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       flash[:notice] = "Account registered!"
 
       redirect_back_or_default account_path

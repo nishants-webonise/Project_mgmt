@@ -11,7 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui-1.10.0.custom
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(document).ready(function(){
+    $('#date-field').datepicker({
+        dateFormat: 'dd/mm/yy'
+    });
+});
 

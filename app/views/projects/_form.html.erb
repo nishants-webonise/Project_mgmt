@@ -40,7 +40,7 @@
       <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
       <!--<a href="/user/98089">User: Nishant Samel</a>-->
       <b>User : <%= @user.username.capitalize %></b>
-      <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="assets/icon_triangle.gif">
+      <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
       <b>Create Project</b>
 
     </div>
@@ -50,12 +50,17 @@
 
     <h2>Create Project</h2>
 
-    <form method="POST" action=user_projects_path>
-      <table class="form">
-        <tbody><tr>
-          <td><label>Project Name:</label></td>
-          <td><input maxlength="40" style="width: 250px" class="text" name="Name"></td>
-        </tr>
+    <%= form_for @project, :url => user_projects_path, :html => { :class => 'form-horizontal' } do |f| %>
+        <table class="form">
+          <tbody><tr>
+            <td><%= f.label :project_name, :class => 'control-label' %></td>
+            <td><%= f.text_field :project_name, :class => 'text_field' %></td>
+          </tr>
+
+          <tr>
+            <td><%= f.label :start_date, :class => 'control-label' %></td>
+            <td><%= f.text_field :start_date, :class => 'text_field', :id => "date-field" %></td>
+          </tr>
         <!--<tr valign="top">-->
           <!--<td style="padding-top: 5px"><label style="padding-top: 3px">Visibility:</label></td>-->
           <!--<td>-->
@@ -92,12 +97,20 @@
           <!--</td>-->
         <!--</tr>-->
 
-        <tr>
-          <td></td>
-          <td><button type="submit">Create Project</button></td>
-        </tr>
-        </tbody></table>
-    </form>
+        <!--<tr>-->
+          <!--<td></td>-->
+          <!--<td><button type="submit">Create Project</button></td>-->
+        <!--</tr>-->
+        <!--</tbody></table>-->
+    <!--</form>-->
+
+          <tr>
+            <td></td>
+            <td><%= f.submit nil, :class => 'btn btn-primary' %></td>
+            <!--<td><button type="submit">Create Project</button></td>-->
+          </tr>
+          </tbody></table>
+    <% end %>
 
     <!--<div style="display: none" id="add-company-project">-->
       <!--<div style="padding: 10px; font-size: 115%">-->
