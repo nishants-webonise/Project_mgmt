@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+    @user = User.find(params[:user_id])
     @project = Project.find(params[:id])
   end
 
@@ -64,6 +65,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
+    @user = User.find(params[:user_id])
     @project = Project.find(params[:id])
 
     respond_to do |format|
@@ -80,6 +82,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    @user = User.find(params[:user_id])
     @project = Project.find(params[:id])
     @project.destroy
 

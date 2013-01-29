@@ -40,7 +40,7 @@
 }
 
 #footer_margin {
-  margin-left : 100px;
+  margin-left : 110px;
 }
 
 #welcome-wrapper {
@@ -218,6 +218,9 @@ padding: 6px 6px 6px 10px;
     left: 0;
     position: absolute;
     top: 0;
+    height: 507px;
+    opacity: 0.5;
+    width: 1522px;
 }
 
 .modal-dialog {
@@ -228,6 +231,20 @@ padding: 6px 6px 6px 10px;
     outline: medium none;
     padding: 5px;
     position: absolute;
+    left: 447px;
+    top: 12px;
+}
+
+.modal-dialog-task{
+    background-color: #BBCCFF;
+    border: 1px solid #000000;
+    color: #000000;
+    font-family: arial,sans-serif;
+    outline: medium none;
+    padding: 5px;
+    position: absolute;
+    left: 508px;
+    top: 304px;
 }
 
 .text_field{
@@ -371,4 +388,77 @@ padding: 6px 6px 6px 10px;
 
 .story-name {
     color: #102188;
+}
+
+.item {
+    background: none repeat scroll 0 0 white;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 2px 5px #CCCCCC;
+    margin-bottom: 15px;
+}
+
+
+.item > label {
+    background: -moz-linear-gradient(center top , #BFE5FD 0%, #AADBF7 100%) repeat scroll 0 0 transparent;
+    border: 0 solid #99AACC;
+    border-radius: 3px 3px 0 0;
+    color: #333333;
+    display: block;
+    font-size: 13px;
+    line-height: 22px;
+    overflow: hidden;
+    padding: 3px 5px;
+    font-weight: bold;
+}
+
+.item > label .buttons {
+    float: right;
+}
+
+
+div.item > label button {
+    vertical-align: text-bottom;
+}
+
+.clean-header {
+    border: 1px solid #BBBBBB;
+    border-radius: 7px 7px 7px 7px;
+    color: #333333;
+    font-weight: normal;
+    margin: 0 1px;
+    padding: 2px 6px;
+}
+
+.clean {
+    background: -moz-linear-gradient(center top , #F7F7F7 0%, #DEDEDE 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #CCCCCC;
+    border-radius: 2px 2px 2px 2px;
+    color: #5F5F5F;
+    font-weight: bold;
+}
+
+/*div.item .value {*/
+    /*background: none repeat scroll 0 0 transparent;*/
+    /*border-style: none;*/
+    /*clear: both;*/
+    /*padding: 4px 4px 4px 10px;*/
+/*}*/
+
+.value {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-color: #EEEEEE;
+    border-style: solid none none solid;
+    border-width: 1px;
+    margin-top: -6px;
+    clear: both;
+    /*padding: 4px 4px 4px 10px;*/
+}
+
+table.clean > tbody > tr > td {
+    border-bottom: 1px solid #EEEEEE;
 }

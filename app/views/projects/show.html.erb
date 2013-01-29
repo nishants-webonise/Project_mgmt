@@ -164,9 +164,10 @@
 
                             <div class="story-main">
                               <div class="story-name-wrapper">
-                                <a class="story-name">
-                                  <%= story.story_name %>
-                                </a>
+                                <!--<a class="story-name">-->
+                                  <%#= story.story_name %>
+                                  <%= link_to story.story_name, user_project_story_path(@user, @project, story.id), :class => 'story-name' %>
+                                <!--</a>-->
                               </div>
 
                               <div class="story-description"><%= story.story_description %></div>

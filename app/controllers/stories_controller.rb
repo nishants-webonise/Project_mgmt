@@ -2,6 +2,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @stories = Story.all
 
     respond_to do |format|
@@ -13,6 +15,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
 
     respond_to do |format|
@@ -28,10 +32,6 @@ class StoriesController < ApplicationController
     @project = Project.find(params[:project_id])
     @story = Story.new
 
-    logger.info("############################{params[:user_id].inspect}")
-
-    logger.info("############################{params[:project_id].inspect}")
-
     respond_to do |format|
       format.html # new.html.erb
       format.js
@@ -41,6 +41,8 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
   end
 
@@ -68,11 +70,14 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.json
   def update
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
-        format.html { redirect_to @story, notice: 'Story was successfully updated.' }
+        #format.html { redirect_to @story, notice: 'Story was successfully updated.' }
+        format.html { redirect_to user_project_path(@user, @project), notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -84,6 +89,8 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.json
   def destroy
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
     @story.destroy
 
