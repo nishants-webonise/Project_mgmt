@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui-1.10.0.custom
 //= require jquery_ujs
+//= require livevalidation_standalone
 //= require twitter/bootstrap
 //= require_tree .
 

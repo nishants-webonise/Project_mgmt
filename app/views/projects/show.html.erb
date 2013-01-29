@@ -1,27 +1,27 @@
 <%- model_class = Project -%>
 <!--<div class="page-header">-->
-  <!--<h1><%#=t '.title', :default => model_class.model_name.human %></h1>-->
+<!--<h1><%#=t '.title', :default => model_class.model_name.human %></h1>-->
 <!--</div>-->
 
 <!--<dl class="dl-horizontal">-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:project_name) %>:</strong></dt>-->
-  <!--<dd><%#= @project.project_name %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:project_status) %>:</strong></dt>-->
-  <!--<dd><%#= @project.project_status %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:start_date) %>:</strong></dt>-->
-  <!--<dd><%#= @project.start_date %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:no_of_members) %>:</strong></dt>-->
-  <!--<dd><%#= @project.no_of_members %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:user_id) %>:</strong></dt>-->
-  <!--<dd><%#= @project.user_id %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:project_name) %>:</strong></dt>-->
+<!--<dd><%#= @project.project_name %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:project_status) %>:</strong></dt>-->
+<!--<dd><%#= @project.project_status %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:start_date) %>:</strong></dt>-->
+<!--<dd><%#= @project.start_date %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:no_of_members) %>:</strong></dt>-->
+<!--<dd><%#= @project.no_of_members %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:user_id) %>:</strong></dt>-->
+<!--<dd><%#= @project.user_id %></dd>-->
 <!--</dl>-->
 
 <!--<div class="form-actions">-->
-  <%#= link_to t('.back', :default => t("helpers.links.back")),
+<%#= link_to t('.back', :default => t("helpers.links.back")),
               user_projects_path, :class => 'btn'  %>
-  <%#= link_to t('.edit', :default => t("helpers.links.edit")),
+<%#= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_user_project_path, :class => 'btn' %>
-  <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+<%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
 #              user_project_path,
 #              :method => 'delete',
 #              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -37,7 +37,6 @@
 
       <b>User Dashboard</b>
       <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
-      <!--<a href="/user/98089">User: Nishant Samel</a>-->
       <b>User : <%= @user.username.capitalize %></b>
       <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
       <b>Project : <%= @project.project_name %></b>
@@ -56,127 +55,164 @@
           <a href="/users/<%= @user.id %>/projects/<%= @project.id %>">Project</a>
         </li>
         <li class="sel">
-        <a href="/users/<%= @user.id %>/projects/<%= @project.id %>/stories">Stories</a>
-      <!--</li><li>-->
-        <!--<a href="/project/49790/releases">Releases</a>-->
-      <!--</li><li>-->
-        <!--<a href="/project/49790/reports">Reports</a>-->
-      <!--</li><li>-->
-        <!--<a href="/project/49790/issues">Issues/Bugs</a>-->
-      <!--</li><li>-->
-        <!--<a href="/project/49790/history">History</a>-->
-      </li>
+          <a href="/users/<%= @user.id %>/projects/<%= @project.id %>/stories">Stories</a>
+        </li>
       </ul>
       <div>
 
         <div style="margin-bottom: 0" class="tbar">
 
           <!--<button id="add-story-button" class="clean">-->
-            <img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/script_add.png">
-            <!--Add Story-->
-            <%= link_to 'Add Story', new_user_project_story_path(@user, @project), :method => :get, "data-toggle" => "modal", :id => "add-story-button", :class => "btn clean", :remote => true %>
-            <div id="story_div">
+          <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/script_add.png">-->
+          <!--Add Story-->
+          <%= link_to 'Add Story', new_user_project_story_path(@user, @project), :method => :get, "data-toggle" => "modal", :id => "add-story-button", :class => "btn clean", :remote => true %>
+          <div id="story_div">
 
-            </div>
+          </div>
           <!--</button>-->
-
-
-
 
           <!--<button id="add-story-button" class="clean">-->
-            <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/script_add.png">-->
-            <!--Add Story-->
+          <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/script_add.png">-->
+          <!--Add Story-->
           <!--</button>-->
 
-          <!--<button id="add-iteration-button" class="clean">-->
-            <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/date_add.png">-->
-            <!--Add Iteration / Sprint-->
-          <!--</button>-->
-
-
-          <!--<button id="task-board-button" class="clean">-->
-            <!--<img width="16" height="16" src="https://d2qpxxzb9974mn.cloudfront.net/img/application_view_tile.png">-->
-            <!--Task Board-->
-          <!--</button>-->
-
-          <!--<div style="float: right; white-space: nowrap">-->
-            <!--Show:-->
-            <!--<select onchange="self.location.href=this.value">-->
-              <!--<option value="/project/49790/stories" selected="selected">Current</option>-->
-              <!--<option value="/project/49790/stories?show=all">All</option>-->
-            <!--</select>-->
-          <!--</div>-->
         </div>
 
-        <!--<style>-->
+        <table width="100%" cellspacing="0" class="layout">
+          <tbody><tr>
+            <td width="170">
+              <div style="padding-top: 20px">
+                <div id="labels-section-wrapper">
+                  <!--<div id="labels-section" class="section goog-scrollfloater">-->
+                    <!--<h4 style="">-->
+                      <!--<div style="float: right; font-weight: normal">-->
+                        <!--<a href="/project/49790/labels">Edit</a>-->
+                      <!--</div>-->
+                      <!--Labels-->
+                    <!--</h4>-->
 
-            <!--/*#labels-section-wrapper .goog-scrollfloater {*/-->
-                <!--/*height: 100%;*/-->
-                <!--/*overflow: auto;*/-->
-            <!--/*}*/-->
+                    <!--<div id="labels" class="clean-scroller" style="height: auto;">-->
 
-        <!--</style><table width="100%" cellspacing="0" class="layout">-->
-        <!--<tbody><tr>-->
-          <!--<td width="170">-->
-            <!--<div style="padding-top: 20px">-->
-              <!--<div id="labels-section-wrapper">-->
-                <!--<div id="labels-section" class="section goog-scrollfloater">-->
-                  <!--<h4 style="">-->
-                    <!--<div style="float: right; font-weight: normal">-->
-                      <!--<a href="/project/49790/labels">Edit</a>-->
                     <!--</div>-->
-                    <!--Labels-->
-                  <!--</h4>-->
-
-                  <!--<div id="labels" class="clean-scroller">-->
-
+                    <!--<p style="font-size: 12px; color: #777">Drag labels to stories to apply.</p>-->
                   <!--</div>-->
-                  <!--<p style="font-size: 12px; color: #777">Drag labels to stories to apply.</p>-->
-                <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-          <!--</td>-->
-          <!--<td width="15"></td>-->
-          <!--<td>-->
-
-            <!--<div id="filter-msg-wrapper">-->
-              <!--<div id="filter-msg"></div>-->
-
-              <!--<div>-->
-                <!--<a href="#">Show all stories</a>-->
-              <!--</div>-->
-            <!--</div>-->
-
-            <!--<div id="stories" class="stories-allow-highlighting">-->
-
-
-              <!--<div style="font-size: 10px; color: #456; overflow: hidden" class="insert-iteration">-->
-                <!--<div style="padding: 4px 0">-->
-                  <!--<a href="#" onclick="return false" id="insert-iteration-link-0" style="text-decoration: none" class="insert-iteration-link">Click to insert iteration</a>-->
-                <!--</div>-->
-              <!--</div>-->
+                </div>
+              </div>
+            </td>
+            <td width="15"></td>
 
 
 
-              <!--<div id="iteration-0" class="iteration">-->
-                <!--<div style="background: url(https://d1ayhg76ch0znm.cloudfront.net/img/green-grad.png); border: solid 1px #bfedd4" class="iteration-header">-->
-                  <!--<div style="float: left">Unscheduled Stories (Backlog)</div>-->
-                  <!--<div style="float: right">Cost: <span id="iteration-0-cost">0</span></div>-->
-                <!--</div>-->
+            <td>
 
-                <!--<div class="iteration-body">-->
+              <div id="filter-msg-wrapper">
+                <div id="filter-msg"></div>
 
-                  <!--<div class="iteration-body-empty">No stories. Drag stories here to un-scheduled them.</div>-->
-                <!--</div>-->
-              <!--</div>-->
+                <div>
+                  <a href="#">Show all stories</a>
+                </div>
+              </div>
 
-            <!--</div>-->
-
-          <!--</td>-->
-        <!--</tr>-->
-        <!--</tbody></table>-->
+              <div id="stories" class="stories-allow-highlighting">
 
 
+                <div style="font-size: 10px; color: #456; overflow: hidden" class="insert-iteration">
+                  <div style="padding: 4px 0">
+                    <a href="#" onclick="return false" id="insert-iteration-link-0" style="text-decoration: none" class="insert-iteration-link"></a>
+                  </div>
+                </div>
+
+
+
+                <div id="iteration-0" class="iteration">
+                  <div style="background: url(https://d1ayhg76ch0znm.cloudfront.net/img/green-grad.png); border: solid 1px #bfedd4" class="iteration-header">
+                    <div style="float: left">Unscheduled Stories (Backlog)</div>
+                  </div>
+
+                  <div class="iteration-body">
+                    <% if @stories.count > 0 %>
+
+                        <% @stories.each do |story| %>
+
+                        <div class="story-wrapper drag-source drag-target" style="display: block;">
+                          <div style="position: relative; top: -1px" class="line-top">
+                            <div>
+
+                            </div>
+                          </div>
+
+                          <div id="story-<%= story.id %>" class="story" style="opacity: 1;">
+                            <div title="Drag to move up or down in priority or into a label" class="story-grab">
+                              <div id="story-<%= story.id %>-rank" class="story-rank"><%= @stories.index(story)+1 %></div>
+
+                              <div style="margin-top: 27px">
+                                <img width="6" height="14" style="vertical-align: text-top; margin: 2px" src="https://d1ayhg76ch0znm.cloudfront.net/img/grippy.png" class="story-draggable">
+                              </div>
+                            </div>
+
+                            <div class="story-annotation">
+                              <div class="item-num">
+                                <a>
+                                  <%= @stories.index(story)+1 %>
+                                </a>
+                              </div>
+
+                              <div class="story-attachment">
+
+                              </div>
+                            </div>
+
+                            <div class="story-main">
+                              <div class="story-name-wrapper">
+                                <a class="story-name">
+                                  <%= story.story_name %>
+                                </a>
+                              </div>
+
+                              <div class="story-description"><%= story.story_description %></div>
+                            </div>
+
+
+                          </div>
+                          <div style="position: relative; top: 1px" class="line-bottom">
+                            <div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <% end %>
+
+
+                    <!--<div class ="iteration-body-empty not">-->
+                      <!--<table width="100%" class="layout">-->
+                        <!--<tbody><tr>-->
+                          <!--<td>-->
+
+                            <!--<%# @stories.each do |story| %>-->
+                            <!--<tr><td>-->
+                              <!--<%#= story.story_name %>-->
+                            <!--</td></tr>-->
+                            <!--<tr><td>-->
+                              <!--<%#= story.story_description %>-->
+                            <!--</td></tr>-->
+                            <!--<%# end %>-->
+
+                      <% else %>
+                    <div class="iteration-body-empty">
+
+                      No stories. Drag stories here to un-scheduled them.
+
+                    </div>
+                       <% end %>
+                  </div>
+                </div>
+
+              </div>
+
+            </td>
+          </tr>
+          </tbody></table>
 
       </div>
     </div>

@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @project = Project.find(params[:id])
+    @stories = Story.find_all_by_project_id(@project)
 
     respond_to do |format|
       format.html # show.html.erb

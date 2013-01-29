@@ -1,51 +1,54 @@
-<div id="modal_story" class="modal hide fade in" aria-hidden="true" style = "display: none; ">
+<div id="modal_story" class="modal hide fade in modal-dialog" aria-hidden="true" style = "display: none; ">
   <div class="modal-header modal-dialog-title modal-dialog-title-draggable">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <h3>Add Story</h3>
   </div>
 
-  <div class="modal-body">
-    <%= form_for @story, :url =>'user_project_stories_path', :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="modal-body modal-dialog-content">
+    <div id="add-story-dialog">
+    <%= form_for @story, :url => user_project_stories_path(@user, @project), :method => :post, :html => { :class => 'form-horizontal'} do |f| %>
         <div class="control-group">
-          <%= f.label :story_name, :class => 'control-label' %>
+          <%= f.label :story_name, "Title", :class => 'control-label' %>
           <div class="controls">
             <%= f.text_field :story_name, :class => 'text_field' %>
           </div>
         </div>
         <div class="control-group">
-          <%= f.label :story_description, :class => 'control-label' %>
+          <%= f.label :story_description, "Description", :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :story_description, :class => 'text_field' %>
+            <%= f.text_area(:story_description, :size => '30x10') %>
           </div>
         </div>
-        <div class="control-group">
-          <%= f.label :story_status, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :story_status, :class => 'text_field' %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :story_priority, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :story_priority, :class => 'text_field' %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= f.label :project_id, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.number_field :project_id, :class => 'number_field' %>
-          </div>
-        </div>
+        <!--<div class="control-group">-->
+          <!--<%#= f.label :story_status, :class => 'control-label' %>-->
+          <!--<div class="controls">-->
+            <!--<%#= f.text_field :story_status, :class => 'text_field' %>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="control-group">-->
+          <!--<%#= f.label :story_priority, :class => 'control-label' %>-->
+          <!--<div class="controls">-->
+            <!--<%#= f.text_field :story_priority, :class => 'text_field' %>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="form-actions">
-          <%= f.submit nil, :class => 'btn btn-primary' %>
-          <%#= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                stories_path, :class => 'btn' %>
-        </div>
+
+        <!--<div class="form-actions">-->
+          <%#= f.submit nil, :class => 'btn btn-primary' %>
+
+        <!--</div>-->
+
+
+          <div class="modal-footer modal-dialog-buttons">
+            <!--<a href="#" class="btn" data-dismiss="modal" >Cancel</a>-->
+            <!--<a href="#" class="btn" data-dismiss="modal" >Save</a>-->
+
+            <%= link_to 'Cancel', '#', "data-dismiss" => "modal", :class => "btn" %>
+            <%= f.submit 'Save', :class => "btn" %>
+          </div>
+
     <% end %>
+    </div>
+  </div>
 
-  </div>
-  <div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal" >Close</a>
-  </div>
 </div>

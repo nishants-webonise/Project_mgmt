@@ -24,7 +24,13 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.json
   def new
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
     @story = Story.new
+
+    logger.info("############################{params[:user_id].inspect}")
+
+    logger.info("############################{params[:project_id].inspect}")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,11 +47,16 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.json
   def create
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+
     @story = Story.new(params[:story])
+    @story.project_id = @project.id
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        #format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        format.html { redirect_to user_project_path(@user, @project), notice: 'Story was successfully created.' }
         format.json { render json: @story, status: :created, location: @story }
       else
         format.html { render action: "new" }

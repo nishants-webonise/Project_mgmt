@@ -13,3 +13,15 @@
     <%= f.submit "SIGN IN" %>
 
 <% end %>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var user_session_username = new LiveValidation('user_session_username');
+        user_session_username.add( Validate.Presence );
+
+        var user_session_password = new LiveValidation('user_session_password');
+        user_session_password.add( Validate.Presence );
+        user_session_password.add( Validate.Length, { minimum: 4 } );
+    });
+</script>

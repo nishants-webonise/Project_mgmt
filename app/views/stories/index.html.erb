@@ -18,7 +18,7 @@
   <tbody>
     <% @stories.each do |story| %>
       <tr>
-        <td><%= link_to story.id, story_path(story) %></td>
+        <td><%= link_to story.id, user_project_stories_path(@user, @project,story) %></td>
         <td><%= story.story_name %></td>
         <td><%= story.story_description %></td>
         <td><%= story.story_status %></td>
@@ -27,9 +27,9 @@
         <td><%=l story.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_story_path(story), :class => 'btn btn-mini' %>
+                      edit_user_project_story_path(@user, @project,story), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      story_path(story),
+                      user_project_story_path(@user, @project,story),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
