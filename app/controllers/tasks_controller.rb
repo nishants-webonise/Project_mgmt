@@ -2,6 +2,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:story_id])
     @tasks = Task.all
 
     respond_to do |format|
@@ -13,6 +16,9 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:story_id])
     @task = Task.find(params[:id])
 
     respond_to do |format|
@@ -24,27 +30,41 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:story_id])
     @task = Task.new
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render json: @task }
     end
   end
 
   # GET /tasks/1/edit
   def edit
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:story_id])
     @task = Task.find(params[:id])
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:story_id])
+
     @task = Task.new(params[:task])
+    @task.story_id = @story.id
+    @task.task_status = "In Process"
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        #format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to user_project_story_path(@user, @project, @story), notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
@@ -56,11 +76,15 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:story_id])
     @task = Task.find(params[:id])
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        #format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to user_project_story_path(@user, @project, @story), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,6 +96,9 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:project_id])
+    @story = Story.find(params[:story_id])
     @task = Task.find(params[:id])
     @task.destroy
 

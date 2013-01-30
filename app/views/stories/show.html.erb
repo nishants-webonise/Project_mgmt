@@ -1,27 +1,27 @@
 <%- model_class = Story -%>
 <!--<div class="page-header">-->
-  <!--<h1><%#=t '.title', :default => model_class.model_name.human %></h1>-->
+<!--<h1><%#=t '.title', :default => model_class.model_name.human %></h1>-->
 <!--</div>-->
 
 <!--<dl class="dl-horizontal">-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:story_name) %>:</strong></dt>-->
-  <!--<dd><%#= @story.story_name %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:story_description) %>:</strong></dt>-->
-  <!--<dd><%#= @story.story_description %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:story_status) %>:</strong></dt>-->
-  <!--<dd><%#= @story.story_status %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:story_priority) %>:</strong></dt>-->
-  <!--<dd><%#= @story.story_priority %></dd>-->
-  <!--<dt><strong><%#= model_class.human_attribute_name(:project_id) %>:</strong></dt>-->
-  <!--<dd><%#= @story.project_id %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:story_name) %>:</strong></dt>-->
+<!--<dd><%#= @story.story_name %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:story_description) %>:</strong></dt>-->
+<!--<dd><%#= @story.story_description %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:story_status) %>:</strong></dt>-->
+<!--<dd><%#= @story.story_status %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:story_priority) %>:</strong></dt>-->
+<!--<dd><%#= @story.story_priority %></dd>-->
+<!--<dt><strong><%#= model_class.human_attribute_name(:project_id) %>:</strong></dt>-->
+<!--<dd><%#= @story.project_id %></dd>-->
 <!--</dl>-->
 
 <!--<div class="form-actions">-->
-  <%#= link_to t('.back', :default => t("helpers.links.back")),
+<%#= link_to t('.back', :default => t("helpers.links.back")),
               stories_path, :class => 'btn'  %>
-  <%#= link_to t('.edit', :default => t("helpers.links.edit")),
+<%#= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_story_path(@story), :class => 'btn' %>
-  <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+<%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
 #              story_path(@story),
 #              :method => 'delete',
 #              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
@@ -30,243 +30,297 @@
 
 <div style="-webkit-border-radius: 4px; -moz-border-radius: 4px" id="page">
 
-  <div id="breadcrumb-bar">
+<div id="breadcrumb-bar">
 
-    <div style="margin: 3px 10px">
+  <div style="margin: 3px 10px">
 
-      <b>User Dashboard</b>
-      <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
-      <b>User : <%= @user.username.capitalize %></b>
-      <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
-      <b>Project : <%= @project.project_name %></b>
+    <b>User Dashboard</b>
+    <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
+    <b>User : <%= @user.username.capitalize %></b>
+    <img width="8" height="9" style="opacity: .3; position: relative; top: 1px; margin: 0px 4px" src="https://d1zvd2d754ag59.cloudfront.net/img/icon_triangle.gif">
+    <b>Project : <%= @project.project_name %></b>
 
-    </div>
   </div>
+</div>
 
 
-  <div id="site-content">
+<div id="site-content">
 
-    <h2>Project: <%= @project.project_name %></h2>
+<h2>Project: <%= @project.project_name %></h2>
 
-    <div>
-    <ul id="project-tabs">
-      <li>
-        <a href="/users/<%= @user.id %>/projects/<%= @project.id %>">Project</a>
-      </li>
-      <li class="sel">
-        <a href="/users/<%= @user.id %>/projects/<%= @project.id %>/stories">Stories</a>
-      </li>
-    </ul>
-    <div>
+<div>
+<ul id="project-tabs">
+  <li>
+    <a href="/users/<%= @user.id %>/projects/<%= @project.id %>">Project</a>
+  </li>
+  <li class="sel">
+    <a href="/users/<%= @user.id %>/projects/<%= @project.id %>/stories">Stories</a>
+  </li>
+</ul>
+<div>
 
-    <div class="tbar">
-      <table class="layout">
-        <tbody><tr>
-          <td width="180">
-
-          </td>
-          <td>
-
-            <!--<button id="edit-story-btn" class="clean">-->
-              <!--<img width="16" height="16" src="https://d1ayhg76ch0znm.cloudfront.net/img/pencil.png">-->
-              <!--Edit Story-->
-            <!--</button>-->
-
-
-            <%= link_to 'Edit Story', edit_user_project_story_path(@user, @project, @story), :method => :get, "data-toggle" => "modal", :id => "edit-story-btn", :class => "btn clean", :remote => true %>
-            <div id="editstory_div">
-
-            </div>
-            <!--<button id="delete-story-button" class="clean">-->
-              <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/cross.png">-->
-              <!--Delete Story-->
-            <!--</button>-->
-
-          </td>
-        </tr>
-        </tbody></table>
-    </div>
-
-    <table width="100%" cellspacing="0" class="layout">
+<div class="tbar">
+  <table class="layout">
     <tbody><tr>
-    <td width="170">
+      <td width="180">
+
+      </td>
+      <td>
+
+        <!--<button id="edit-story-btn" class="clean">-->
+        <!--<img width="16" height="16" src="https://d1ayhg76ch0znm.cloudfront.net/img/pencil.png">-->
+        <!--Edit Story-->
+        <!--</button>-->
 
 
-    </td>
+        <%= link_to 'Edit Story', edit_user_project_story_path(@user, @project, @story), :method => :get, "data-toggle" => "modal", :id => "edit-story-btn", :class => "btn clean", :remote => true %>
+        <div id="editstory_div">
 
-    <td width="15"></td>
-
-    <td style="border: 4px solid rgb(217, 230, 247);">
-
-    <div style="padding: 10px 20px">
-    <div id="story-details" class="padded">
-
-      <div id="story-content">
-        <div>
-
-          <table width="100%" class="story-header layout">
-            <tbody><tr valign="top">
-              <td style="max-width: 30px; padding-right: 3px">
-
-                <div style="display: inline-block; font-size: 16px; font-weight: bold;" class="item-num">1</div>
-
-              </td>
-              <td width="*">
-
-                <div style="margin-bottom: 12px; width: 97%; min-width: 400px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box">
-                  <div id="story-title" style="font-size: 18px; font-weight: bold; color: #222"><%= @story.story_name %></div>
-                </div>
-
-              </td>
-              <td align="right" nowrap="nowrap">
-
-              </td>
-            </tr>
-            </tbody></table>
-
-          <div style="background: #ced; margin-bottom: 10px; border: 1px solid #bdc; border-style: none solid solid none">
-
-          </div>
-
-          <div style="margin-bottom: 20px">
-            <div>
-              <div id="story-description" style="width: 678px;"><font size="2"><span><font face="arial, sans-serif"><%= @story.story_description %></font></span></font></div>
-            </div>
-          </div>
-
-          <div id="story-label-fields">
-
-            <div id="story-label-fields-viewer">
-
-            </div>
-
-            <div id="story-label-fields-editor" style="display: none">
-
-            </div>
-
-          </div>
         </div>
-      </div>
+        <!--<button id="delete-story-button" class="clean">-->
+        <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/cross.png">-->
+        <!--Delete Story-->
+        <!--</button>-->
 
-      <div id="edit-toolbar" style="padding: 1px; text-align: right; display: none; margin: 10px 0; margin-bottom: 10px">
-        <button id="save-button" class="clean">
-          <img width="16" height="16" src="https://d1ayhg76ch0znm.cloudfront.net/img/tick.png">
-          Save Changes
-        </button>
-        <button id="cancel-edit-button" class="clean">
-          <img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/cross.png">
-          Cancel
-        </button>
-      </div>
-
-      <div id="attachments">
-
-      </div>
-
-      <div id="issues">
-
-      </div>
-
-      <hr style="background: white; margin-bottom: 20px">
-
-      <div style="margin-bottom: 30px" class="item">
-
-      </div>
-
-      <div class="item">
-        <label>
-          <div class="buttons">
-            <!--<button id="add-task-button" class="clean clean-header">-->
-              <!--<img width="16" height="16" src="https://d2qpxxzb9974mn.cloudfront.net/img/add.png">-->
-              <!--Add Task-->
-            <!--</button>-->
-
-            <%= link_to 'Add Task', new_user_project_story_task_path(@user, @project, @story), :method => :get, "data-toggle" => "modal", :id => "add-task-button", :class => "clean clean-header", :remote => true %>
-            <div id="task_div">
-
-            </div>
-
-          </div>
-
-          Tasks
-        </label>
-        <div class="value">
-          <div id="tasks">
-            <table width="100%" cellspacing="0" cellpadding="3" class="clean">
-
-
-
-              <tbody><tr>
-                <td align="center" colspan="20">-- No Tasks --</td>
-              </tr>
-              </tbody></table>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!--<div class="padded">-->
-      <!--<div class="item">-->
-        <!--<label for="histDiscTitle">-->
-
-
-          <!--<div style="float: right; font-weight: normal">-->
-            <!--Show:-->
-            <!--<div style="background: #def; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; padding: 0 6px; border: 1px solid #bcd; border-style: solid none none solid" class="history-show-options goog-inline-block">-->
-              <!--<a href="#">History</a>-->
-              <!--- <a href="#">Comments</a>-->
-              <!--- <a href="#" class="history-show-options-selected">Both</a>-->
-            <!--</div>-->
-          <!--</div>-->
-
-          <!--<span id="histDiscTitle">History / Discussion</span>-->
-        <!--</label>-->
-        <!--<div class="value">-->
-          <!--<div id="story-history" style="min-height: 50px;" old-position=""><table width="100%" cellspacing="0" cellpadding="6" class="history">-->
-            <!--<tbody><tr valign="top" class="history-item history-item-action">-->
-              <!--<td width="33" nowrap="nowrap" style="padding-bottom: 10px">-->
-                <!--<img width="32" height="32" src="https://secure.gravatar.com/avatar/a455033076230c7964aa72a4dfa83caa?s=32&amp;d=https%3A%2F%2Fd1zvd2d754ag59.cloudfront.net%2Fimg%2Fdefault-avatar-32.png">-->
-              <!--</td>-->
-              <!--<td>-->
-            <!--<span style="font-weight: bold; margin-bottom: 4px">-->
-              <!--<a href="/users/98089" style="color: #457">Nishant Samel</a>-->
-            <!--</span>-->
-
-                <!--<div style="padding: 8px 4px; border-bottom: 1px solid #ddd">-->
-                  <!--added story-->
-
-
-                <!--</div><div style="padding: 8px 4px; ">-->
-                <!--applied label 'AAA' to the story-->
-
-
-              <!--</div>-->
-              <!--</td>-->
-              <!--<td align="right" width="85">-->
-                <!--<div style="font-style: italic; font-weight: normal; white-space: nowrap" title="Jan 29 2013 - 2:22AM">-->
-                  <!--4 hours ago-->
-                <!--</div>-->
-              <!--</td>-->
-            <!--</tr>-->
-            <!--</tbody></table></div>-->
-          <!--<table width="100%" class="info">-->
-            <!--<tbody><tr valign="top">-->
-              <!--<td width="100"><label>Add Comment: </label></td>-->
-              <!--<td><textarea id="history-comment" style="width: 100%"></textarea></td>-->
-              <!--<td width="80"><button id="add-comment-button">Add</button></td>-->
-            <!--</tr>-->
-            <!--</tbody></table>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    </div>
-
-    </td>
+      </td>
     </tr>
     </tbody></table>
+</div>
+
+<table width="100%" cellspacing="0" class="layout">
+<tbody><tr>
+<td width="170">
+
+
+</td>
+
+<td width="15"></td>
+
+<td style="border: 4px solid rgb(217, 230, 247);">
+
+<div style="padding: 10px 20px">
+<div id="story-details" class="padded">
+
+<div id="story-content">
+  <div>
+
+    <table width="100%" class="story-header layout">
+      <tbody><tr valign="top">
+        <td style="max-width: 30px; padding-right: 3px">
+
+          <div style="display: inline-block; font-size: 16px; font-weight: bold;" class="item-num"><%= @story.id %></div>
+
+        </td>
+        <td width="*">
+
+          <div style="margin-bottom: 12px; width: 97%; min-width: 400px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box">
+            <div id="story-title" style="font-size: 18px; font-weight: bold; color: #222"><%= @story.story_name %></div>
+          </div>
+
+        </td>
+        <td align="right" nowrap="nowrap">
+
+        </td>
+      </tr>
+      </tbody></table>
+
+    <div style="background: #ced; margin-bottom: 10px; border: 1px solid #bdc; border-style: none solid solid none">
 
     </div>
+
+    <div style="margin-bottom: 20px">
+      <div>
+        <div id="story-description" style="width: 678px;"><font size="2"><span><font face="arial, sans-serif"><%= @story.story_description %></font></span></font></div>
+      </div>
+    </div>
+
+    <div id="story-label-fields">
+
+      <div id="story-label-fields-viewer">
+
+      </div>
+
+      <div id="story-label-fields-editor" style="display: none">
+
+      </div>
+
     </div>
   </div>
 </div>
+
+<div id="edit-toolbar" style="padding: 1px; text-align: right; display: none; margin: 10px 0; margin-bottom: 10px">
+  <button id="save-button" class="clean">
+    <img width="16" height="16" src="https://d1ayhg76ch0znm.cloudfront.net/img/tick.png">
+    Save Changes
+  </button>
+  <button id="cancel-edit-button" class="clean">
+    <img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/cross.png">
+    Cancel
+  </button>
+</div>
+
+<div id="attachments">
+
+</div>
+
+<div id="issues">
+
+</div>
+
+<hr style="background: white; margin-bottom: 20px">
+
+<div style="margin-bottom: 30px" class="item">
+
+</div>
+
+<div class="item">
+  <label>
+    <div class="buttons">
+      <!--<button id="add-task-button" class="clean clean-header">-->
+      <!--<img width="16" height="16" src="https://d2qpxxzb9974mn.cloudfront.net/img/add.png">-->
+      <!--Add Task-->
+      <!--</button>-->
+
+      <%= link_to 'Add Task', new_user_project_story_task_path(@user, @project, @story), :method => :get, "data-toggle" => "modal", :id => "add-task-button", :class => "clean clean-header", :remote => true %>
+
+
+    </div>
+
+    Tasks
+  </label>
+
+  <div id="task_div">
+
+  </div>
+
+  <div class="value">
+    <div id="tasks">
+
+
+      <table width="100%" cellspacing="0" cellpadding="3" class="clean">
+
+        <% if @tasks.count > 0 %>
+
+            <tbody><tr>
+              <!--<th colspan="3">Task / Status / Hours Remaining</th>-->
+              <!--<th width="120">Assigned To</th>-->
+              <th colspan="3"></th>
+              <th width="120"></th>
+              <th></th>
+            </tr>
+
+            <% @tasks.each do |task| %>
+                <tr valign="top" id="task-<%= @tasks.index(task)+1 %>-row" class="task-row">
+
+                  <td width="55" nowrap="nowrap">
+                    <input type="checkbox" id="task-<%= @tasks.index(task)+1 %>-check" style="vertical-align: text-bottom" title="Mark complete" class="task-check-checkbox"  rel=<%= @tasks.index(task)+1 %>>
+
+                    <%= @story.id  %>-<%= @tasks.index(task)+1 %>
+                  </td>
+
+                  <td>
+
+                    <div style="float: right" class="actions">
+                      <!--<div class="clean row-toolbar actions">-->
+                      <!--<div id="task-<%#= @tasks.index(task)+1 %>-edit-button" title="Edit task" class="subtle-icon-button task-edit-button">-->
+                      <!--<img width="13" height="13" src="/img/story-options/gray-pencil.png">-->
+                      <!--</div>-->
+                      <!--</div>-->
+                    </div>
+
+                    <a name="task-<%= @tasks.index(task)+1 %>"></a>
+                    <div style="min-height: 30px">
+                      <div class="task-view task-content-div">
+                        <%= task.task_description %>
+                      </div>
+
+                    </div>
+                  </td>
+
+                  <td width="90" nowrap="nowrap">
+                    <select id="task-<%= @tasks.index(task)+1 %>-status" name = "task-status" class="task-status-select" rel=<%= @tasks.index(task)+1 %>>
+                      <option value="inprocess" style="font-size: 10px;" selected="selected">IN PROCESS</option><option value="done" style="font-size: 10px;">DONE</option>
+                    </select>
+
+                  </td>
+
+                </tr>
+
+            <% end %>
+
+
+            </tbody>
+
+
+        <% else %>
+
+            <tbody><tr>
+              <td align="center" colspan="20">-- No Tasks --</td>
+            </tr>
+            </tbody>
+
+        <% end %>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+</td>
+</tr>
+</tbody></table>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+
+//    var id = $('.task-check-checkbox').attr("rel");
+//    console.log($("#task-"+id+"-status").html());
+
+        $('.task-check-checkbox').on("click",function() {
+            var id = $(this).attr("rel");
+            // $this will contain a reference to the checkbox
+
+            if ($(this).is(':checked')) {
+                var status = $("#task-"+id+"-status").val("done")
+            } else {
+                $("#task-"+id+"-status").val("inprocess")
+            }
+        });
+
+
+        $('.task-status-select').on("change",function() {
+            var id = $(this).attr("rel");
+
+            var sel = $("#task-"+id+"-status").val();
+
+            if (sel == "done") {
+                $("#task-"+id+"-check")[0].checked = "checked";
+
+                alert("Done");
+                $.ajax({
+                    type: "put" ,
+                    url: "/users/<%= @user.id %>/projects/<%= @project.id %>/stories/<%= @story.id %>/tasks/"+id,
+                    data: { task_status :sel}
+                });
+            } else {
+                $("#task-"+id+"-check").attr('checked', false);
+                alert("Not Done");
+            }
+        });
+
+
+    });
+
+
+
+</script>

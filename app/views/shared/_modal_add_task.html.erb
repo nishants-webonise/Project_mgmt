@@ -8,43 +8,18 @@
     <div id="add-story-dialog">
       <%= form_for @task, :url => user_project_story_tasks_path(@user, @project, @story), :method => :post, :html => { :class => 'form-horizontal'} do |f| %>
           <div class="control-group">
-            <%= f.label :story_name, "Task", :class => 'control-label' %>
+            <%= f.label :task_description, "Task", :class => 'control-label' %>
             <div class="controls">
-              <%= f.text_field :story_name, :class => 'text_field' %>
+              <%= f.text_area(:task_description, :size => '30x10') %>
             </div>
           </div>
-          <div class="control-group">
-            <%= f.label :story_description, "Description", :class => 'control-label' %>
-            <div class="controls">
-              <%= f.text_area(:story_description, :size => '30x10') %>
-            </div>
-          </div>
-          <!--<div class="control-group">-->
-          <!--<%#= f.label :story_status, :class => 'control-label' %>-->
-          <!--<div class="controls">-->
-          <!--<%#= f.text_field :story_status, :class => 'text_field' %>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--<div class="control-group">-->
-          <!--<%#= f.label :story_priority, :class => 'control-label' %>-->
-          <!--<div class="controls">-->
-          <!--<%#= f.text_field :story_priority, :class => 'text_field' %>-->
-          <!--</div>-->
-          <!--</div>-->
-
-
-          <!--<div class="form-actions">-->
-          <%#= f.submit nil, :class => 'btn btn-primary' %>
-
-          <!--</div>-->
-
 
           <div class="modal-footer modal-dialog-buttons">
             <!--<a href="#" class="btn" data-dismiss="modal" >Cancel</a>-->
             <!--<a href="#" class="btn" data-dismiss="modal" >Save</a>-->
-
+            <%= f.submit 'Ok', :class => "btn" %>
             <%= link_to 'Cancel', '#', "data-dismiss" => "modal", :class => "btn" %>
-            <%= f.submit 'Save', :class => "btn" %>
+
           </div>
 
       <% end %>

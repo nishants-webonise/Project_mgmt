@@ -19,6 +19,8 @@ class StoriesController < ApplicationController
     @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
 
+    @tasks = Task.find_all_by_story_id(@story)
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @story }
