@@ -16,6 +16,7 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
     @user = User.find(params[:user_id])
+    @users = User.all
     @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
 
@@ -97,7 +98,7 @@ class StoriesController < ApplicationController
     @story.destroy
 
     respond_to do |format|
-      format.html { redirect_to story_path }
+      format.html { redirect_to user_project_path(@user, @project) }
       format.json { head :no_content }
     end
   end

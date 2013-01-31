@@ -21,11 +21,10 @@
           </div>
 
           <div class="modal-footer modal-dialog-buttons">
-            <!--<a href="#" class="btn" data-dismiss="modal" >Cancel</a>-->
-            <!--<a href="#" class="btn" data-dismiss="modal" >Save</a>-->
 
-            <%= link_to 'Cancel', '#', "data-dismiss" => "modal", :class => "btn" %>
             <%= f.submit 'Update', :class => "btn" %>
+            <%= link_to 'Cancel', '#', "data-dismiss" => "modal", :class => "btn" %>
+
           </div>
 
       <% end %>

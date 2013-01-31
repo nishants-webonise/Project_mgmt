@@ -66,11 +66,19 @@
           <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/script_add.png">-->
           <!--Add Story-->
           <%= link_to 'Add Story', new_user_project_story_path(@user, @project), :method => :get, "data-toggle" => "modal", :id => "add-story-button", :class => "btn clean", :remote => true %>
+
+
+          <%= link_to 'Add User', new_project_user_path(@project), :method => :get, "data-toggle" => "modal", :id => "add-user-button", :class => "btn clean", :remote => true %>
+          <!--</button>-->
+
+
           <div id="story_div">
 
           </div>
-          <!--</button>-->
 
+          <div id="user_div">
+
+          </div>
           <!--<button id="add-story-button" class="clean">-->
           <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/script_add.png">-->
           <!--Add Story-->

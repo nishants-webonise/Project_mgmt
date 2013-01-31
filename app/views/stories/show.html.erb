@@ -88,191 +88,205 @@
 </div>
 
 <table width="100%" cellspacing="0" class="layout">
-<tbody><tr>
-<td width="170">
+  <tbody><tr>
+    <td width="170">
 
 
-</td>
+    </td>
 
-<td width="15"></td>
+    <td width="15"></td>
 
-<td style="border: 4px solid rgb(217, 230, 247);">
+    <td style="border: 4px solid rgb(217, 230, 247);">
 
-<div style="padding: 10px 20px">
-<div id="story-details" class="padded">
+      <div style="padding: 10px 20px">
+        <div id="story-details" class="padded">
 
-<div id="story-content">
-  <div>
+          <div id="story-content">
+            <div>
 
-    <table width="100%" class="story-header layout">
-      <tbody><tr valign="top">
-        <td style="max-width: 30px; padding-right: 3px">
+              <table width="100%" class="story-header layout">
+                <tbody><tr valign="top">
+                  <td style="max-width: 30px; padding-right: 3px">
 
-          <div style="display: inline-block; font-size: 16px; font-weight: bold;" class="item-num"><%= @story.id %></div>
+                    <div style="display: inline-block; font-size: 16px; font-weight: bold;" class="item-num"><%= @story.id %></div>
 
-        </td>
-        <td width="*">
+                  </td>
+                  <td width="*">
 
-          <div style="margin-bottom: 12px; width: 97%; min-width: 400px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box">
-            <div id="story-title" style="font-size: 18px; font-weight: bold; color: #222"><%= @story.story_name %></div>
+                    <div style="margin-bottom: 12px; width: 97%; min-width: 400px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box">
+                      <div id="story-title" style="font-size: 18px; font-weight: bold; color: #222"><%= @story.story_name %></div>
+                    </div>
+
+                  </td>
+                  <td align="right" nowrap="nowrap">
+
+                  </td>
+                </tr>
+                </tbody></table>
+
+              <div style="background: #ced; margin-bottom: 10px; border: 1px solid #bdc; border-style: none solid solid none">
+
+              </div>
+
+              <div style="margin-bottom: 20px">
+                <div>
+                  <div id="story-description" style="width: 678px;"><font size="2"><span><font face="arial, sans-serif"><%= @story.story_description %></font></span></font></div>
+                </div>
+              </div>
+
+              <div id="story-label-fields">
+
+                <div id="story-label-fields-viewer">
+
+                </div>
+
+                <div id="story-label-fields-editor" style="display: none">
+
+                </div>
+
+              </div>
+            </div>
           </div>
 
-        </td>
-        <td align="right" nowrap="nowrap">
+          <div id="edit-toolbar" style="padding: 1px; text-align: right; display: none; margin: 10px 0; margin-bottom: 10px">
+            <!--<button id="save-button" class="clean">-->
+              <!--<img width="16" height="16" src="https://d1ayhg76ch0znm.cloudfront.net/img/tick.png">-->
+              <!--Save Changes-->
+            <!--</button>-->
+            <!--<button id="cancel-edit-button" class="clean">-->
+              <!--<img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/cross.png">-->
+              <!--Cancel-->
+            <!--</button>-->
+          </div>
 
-        </td>
-      </tr>
-      </tbody></table>
+          <div id="attachments">
 
-    <div style="background: #ced; margin-bottom: 10px; border: 1px solid #bdc; border-style: none solid solid none">
+          </div>
 
-    </div>
+          <div id="issues">
 
-    <div style="margin-bottom: 20px">
-      <div>
-        <div id="story-description" style="width: 678px;"><font size="2"><span><font face="arial, sans-serif"><%= @story.story_description %></font></span></font></div>
+          </div>
+
+          <hr style="background: white; margin-bottom: 20px">
+
+          <div style="margin-bottom: 30px" class="item">
+
+          </div>
+
+          <div class="item">
+            <label>
+              <div class="buttons">
+                <!--<button id="add-task-button" class="clean clean-header">-->
+                <!--<img width="16" height="16" src="https://d2qpxxzb9974mn.cloudfront.net/img/add.png">-->
+                <!--Add Task-->
+                <!--</button>-->
+
+                <%= link_to 'Add Task', new_user_project_story_task_path(@user, @project, @story), :method => :get, "data-toggle" => "modal", :id => "add-task-button", :class => "clean clean-header", :remote => true %>
+
+
+              </div>
+
+              Tasks
+            </label>
+
+            <div id="task_div">
+
+            </div>
+
+            <div class="value">
+              <div id="tasks">
+
+
+                <table width="100%" cellspacing="0" cellpadding="3" class="clean">
+
+                  <% if @tasks.count > 0 %>
+
+                      <tbody><tr>
+                        <!--<th colspan="3">Task / Status / Hours Remaining</th>-->
+                        <!--<th width="120">Assigned To</th>-->
+                        <th colspan="3"></th>
+                        <th width="120">Assigned To</th>
+                        <th></th>
+                      </tr>
+
+                      <% @tasks.each do |task| %>
+                          <tr valign="top" id="task-<%= @tasks.index(task)+1 %>-row" class="task-row">
+
+                            <td width="55" nowrap="nowrap">
+                              <input type="checkbox" id="task-<%= @tasks.index(task)+1 %>-check" style="vertical-align: text-bottom" title="Mark complete" class="task-check-checkbox"  rel=<%= @tasks.index(task)+1 %>>
+
+                              <%= @story.id  %>-<%= @tasks.index(task)+1 %>
+                            </td>
+
+                            <td>
+
+                              <div style="float: right" class="actions">
+                                <!--<div class="clean row-toolbar actions">-->
+                                <!--<div id="task-<%#= @tasks.index(task)+1 %>-edit-button" title="Edit task" class="subtle-icon-button task-edit-button">-->
+                                <!--<img width="13" height="13" src="/img/story-options/gray-pencil.png">-->
+                                <!--</div>-->
+                                <!--</div>-->
+                              </div>
+
+                              <a name="task-<%= @tasks.index(task)+1 %>"></a>
+                              <div style="min-height: 30px">
+                                <div class="task-view task-content-div">
+                                  <p class="task"><%= task.task_description %></p>
+                                </div>
+
+                                <!--<div class="task-strikethrough">-->
+                                  <!--<%#= task.task_description %>-->
+                                <!--</div>-->
+
+                              </div>
+                            </td>
+
+                            <td width="90" nowrap="nowrap">
+                              <select id="task-<%= @tasks.index(task)+1 %>-status" class="task-status-select" rel=<%= @tasks.index(task)+1 %>>
+                                <option value="inprocess" style="font-size: 10px;" selected="selected">IN PROCESS</option><option value="done" style="font-size: 10px;">DONE</option>
+                              </select>
+
+                            </td>
+
+                            <td style="padding-left: 10px">
+                              <div id="task-149596-assigned-to" class="task-assigned-to">
+                                <div class="goog-inline-block goog-flat-menu-button" title="" role="listbox" style="-moz-user-select: none;" tabindex="0" aria-haspopup="false" aria-expanded="false" aria-activedescendant="">
+                                  <!--<div class="goog-inline-block goog-flat-menu-button-caption">- Not Assigned -</div>-->
+                                  <!--<div class="goog-inline-block goog-flat-menu-button-dropdown">&nbsp;</div>-->
+
+                                <%= select_tag "user", options_from_collection_for_select(@users, "id", "username"), :prompt => "Select someone" %>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+
+                      <% end %>
+
+
+                      </tbody>
+
+
+                  <% else %>
+
+                      <tbody><tr>
+                        <td align="center" colspan="20">-- No Tasks --</td>
+                      </tr>
+                      </tbody>
+
+                  <% end %>
+
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </div>
 
-    <div id="story-label-fields">
-
-      <div id="story-label-fields-viewer">
-
-      </div>
-
-      <div id="story-label-fields-editor" style="display: none">
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div id="edit-toolbar" style="padding: 1px; text-align: right; display: none; margin: 10px 0; margin-bottom: 10px">
-  <button id="save-button" class="clean">
-    <img width="16" height="16" src="https://d1ayhg76ch0znm.cloudfront.net/img/tick.png">
-    Save Changes
-  </button>
-  <button id="cancel-edit-button" class="clean">
-    <img width="16" height="16" src="https://dqrycuzv8h2ib.cloudfront.net/img/cross.png">
-    Cancel
-  </button>
-</div>
-
-<div id="attachments">
-
-</div>
-
-<div id="issues">
-
-</div>
-
-<hr style="background: white; margin-bottom: 20px">
-
-<div style="margin-bottom: 30px" class="item">
-
-</div>
-
-<div class="item">
-  <label>
-    <div class="buttons">
-      <!--<button id="add-task-button" class="clean clean-header">-->
-      <!--<img width="16" height="16" src="https://d2qpxxzb9974mn.cloudfront.net/img/add.png">-->
-      <!--Add Task-->
-      <!--</button>-->
-
-      <%= link_to 'Add Task', new_user_project_story_task_path(@user, @project, @story), :method => :get, "data-toggle" => "modal", :id => "add-task-button", :class => "clean clean-header", :remote => true %>
-
-
-    </div>
-
-    Tasks
-  </label>
-
-  <div id="task_div">
-
-  </div>
-
-  <div class="value">
-    <div id="tasks">
-
-
-      <table width="100%" cellspacing="0" cellpadding="3" class="clean">
-
-        <% if @tasks.count > 0 %>
-
-            <tbody><tr>
-              <!--<th colspan="3">Task / Status / Hours Remaining</th>-->
-              <!--<th width="120">Assigned To</th>-->
-              <th colspan="3"></th>
-              <th width="120"></th>
-              <th></th>
-            </tr>
-
-            <% @tasks.each do |task| %>
-                <tr valign="top" id="task-<%= @tasks.index(task)+1 %>-row" class="task-row">
-
-                  <td width="55" nowrap="nowrap">
-                    <input type="checkbox" id="task-<%= @tasks.index(task)+1 %>-check" style="vertical-align: text-bottom" title="Mark complete" class="task-check-checkbox"  rel=<%= @tasks.index(task)+1 %>>
-
-                    <%= @story.id  %>-<%= @tasks.index(task)+1 %>
-                  </td>
-
-                  <td>
-
-                    <div style="float: right" class="actions">
-                      <!--<div class="clean row-toolbar actions">-->
-                      <!--<div id="task-<%#= @tasks.index(task)+1 %>-edit-button" title="Edit task" class="subtle-icon-button task-edit-button">-->
-                      <!--<img width="13" height="13" src="/img/story-options/gray-pencil.png">-->
-                      <!--</div>-->
-                      <!--</div>-->
-                    </div>
-
-                    <a name="task-<%= @tasks.index(task)+1 %>"></a>
-                    <div style="min-height: 30px">
-                      <div class="task-view task-content-div">
-                        <%= task.task_description %>
-                      </div>
-
-                    </div>
-                  </td>
-
-                  <td width="90" nowrap="nowrap">
-                    <select id="task-<%= @tasks.index(task)+1 %>-status" name = "task-status" class="task-status-select" rel=<%= @tasks.index(task)+1 %>>
-                      <option value="inprocess" style="font-size: 10px;" selected="selected">IN PROCESS</option><option value="done" style="font-size: 10px;">DONE</option>
-                    </select>
-
-                  </td>
-
-                </tr>
-
-            <% end %>
-
-
-            </tbody>
-
-
-        <% else %>
-
-            <tbody><tr>
-              <td align="center" colspan="20">-- No Tasks --</td>
-            </tr>
-            </tbody>
-
-        <% end %>
-
-      </table>
-    </div>
-  </div>
-</div>
-
-</div>
-
-</div>
-
-</td>
-</tr>
-</tbody></table>
+    </td>
+  </tr>
+  </tbody></table>
 
 </div>
 </div>
@@ -290,10 +304,32 @@
             var id = $(this).attr("rel");
             // $this will contain a reference to the checkbox
 
+            var sel;
+
             if ($(this).is(':checked')) {
-                var status = $("#task-"+id+"-status").val("done")
+                sel = "Done"
+                $("#task-"+id+"-status").val("done")
+
+                //$(".task-check-checkbox").first().closest("tr").find("p")
+                $(this).closest("tr").find("p").removeClass("task").addClass("task-strikethrough");
+
+                $.ajax({
+                    type: "put" ,
+                    url: "/users/<%= @user.id %>/projects/<%= @project.id %>/stories/<%= @story.id %>/tasks/"+id,
+                    data: { id :id, task_status :sel }
+                });
+
             } else {
+                sel = "In Process"
                 $("#task-"+id+"-status").val("inprocess")
+
+                $(this).closest("tr").find("p").removeClass("task-strikethrough").addClass("task");
+
+                $.ajax({
+                    type: "put" ,
+                    url: "/users/<%= @user.id %>/projects/<%= @project.id %>/stories/<%= @story.id %>/tasks/"+id,
+                    data: { id :id, task_status :sel }
+                });
             }
         });
 
@@ -304,23 +340,34 @@
             var sel = $("#task-"+id+"-status").val();
 
             if (sel == "done") {
+                sel = "Done"
                 $("#task-"+id+"-check")[0].checked = "checked";
 
-                alert("Done");
+                $(this).closest("tr").find("p").removeClass("task").addClass("task-strikethrough");
+
                 $.ajax({
                     type: "put" ,
                     url: "/users/<%= @user.id %>/projects/<%= @project.id %>/stories/<%= @story.id %>/tasks/"+id,
-                    data: { task_status :sel}
+                    data: { id :id, task_status :sel }
+//                    ,
+//                    success: function () {
+//                        alert: 'Task was successfully updated.'
+//                    }
                 });
             } else {
+                sel = "In Process"
                 $("#task-"+id+"-check").attr('checked', false);
-                alert("Not Done");
+
+                $(this).closest("tr").find("p").removeClass("task-strikethrough").addClass("task");
+
+                $.ajax({
+                    type: "put" ,
+                    url: "/users/<%= @user.id %>/projects/<%= @project.id %>/stories/<%= @story.id %>/tasks/"+id,
+                    data: { id :id, task_status :sel }
+                });
             }
         });
 
-
     });
-
-
 
 </script>

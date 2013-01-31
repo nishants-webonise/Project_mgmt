@@ -15,7 +15,9 @@ ProjectManagementSystem::Application.routes.draw do
     end
   end
 
-
+  resources :projects do
+    resources :users
+  end
 
   match 'login' => 'user_sessions#new', :as => :login
 

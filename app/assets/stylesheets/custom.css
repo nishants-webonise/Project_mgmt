@@ -74,6 +74,7 @@
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     background: -moz-linear-gradient(center top , #FFF2B7 0%, #FAE694 100%) repeat scroll 0 0 transparent;
+    background-color: #FAE694;
     border-color: #DDDDDD;
     border-right: 1px solid #DDDDDD;
     border-style: none solid solid;
@@ -496,4 +497,9 @@ table.clean .row-toolbar {
     padding: 3px;
     position: relative;
     width: 13px;
+}
+
+.task-strikethrough{
+    color : #888888;
+    text-decoration: line-through;
 }

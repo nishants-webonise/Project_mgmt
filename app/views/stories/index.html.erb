@@ -8,8 +8,8 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:story_name) %></th>
       <th><%= model_class.human_attribute_name(:story_description) %></th>
-      <th><%= model_class.human_attribute_name(:story_status) %></th>
-      <th><%= model_class.human_attribute_name(:story_priority) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:story_status) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:story_priority) %></th>-->
       <th><%= model_class.human_attribute_name(:project_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -21,8 +21,8 @@
         <td><%= link_to story.id, user_project_stories_path(@user, @project,story) %></td>
         <td><%= story.story_name %></td>
         <td><%= story.story_description %></td>
-        <td><%= story.story_status %></td>
-        <td><%= story.story_priority %></td>
+        <!--<td><%#= story.story_status %></td>-->
+        <!--<td><%#= story.story_priority %></td>-->
         <td><%= story.project_id %></td>
         <td><%=l story.created_at %></td>
         <td>

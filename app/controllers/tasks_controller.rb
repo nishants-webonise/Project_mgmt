@@ -80,11 +80,14 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @story = Story.find(params[:story_id])
     @task = Task.find(params[:id])
+    @task.task_status = params[:task_status]
+
+    #logger.info("############################{@task.inspect}")
 
     respond_to do |format|
-      if @task.update_attributes(params[:task])
+      if @task.save
         #format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.html { redirect_to user_project_story_path(@user, @project, @story), notice: 'Task was successfully updated.' }
+        #format.html { redirect_to user_project_story_path(@user, @project, @story), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

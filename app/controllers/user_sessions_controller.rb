@@ -19,7 +19,6 @@ class UserSessionsController < ApplicationController
     end
   end
 
-
   def destroy
     current_user_session.destroy
 
