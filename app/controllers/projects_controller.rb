@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @user = User.find(params[:user_id])
-    @users = User.all
     @project = Project.find(params[:id])
     @stories = Story.find_all_by_project_id(@project)
 
@@ -92,4 +91,28 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_project_users
+    #@user = User.find(params[:user_id])
+    @users = User.all
+    @project = Project.find(params[:id])
+  end
+
+  def save_project_users
+    @project = Project.find(params[:id])
+    @olduser = @project.user_id
+    @project_users = @project.users
+
+    if params[:user_ids].present?
+      params[:user_ids].each do |i|
+        selected_user = User.find(i)
+        @project_users.include?(selected_user) ? "" : @project_users.push(selected_user)
+      end
+      flash[:success] = "Users are added successfully."
+    else
+      flash[:error] = "Please select atleast one user."
+    end
+    redirect_to user_project_path(@olduser, @project)
+  end
+
 end

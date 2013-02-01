@@ -5,12 +5,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.js
-      format.json { render json: @user }
-    end
   end
 
   def create
@@ -33,12 +27,6 @@ class UsersController < ApplicationController
   def show
     @user = @current_user
     @projects = Project.find_all_by_user_id(@user)
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.js
-      format.json { render json: @user }
-    end
   end
 
   def edit

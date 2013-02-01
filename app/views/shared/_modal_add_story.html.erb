@@ -32,3 +32,14 @@
   </div>
 
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var story_story_name = new LiveValidation('story_story_name');
+        story_story_name.add( Validate.Presence );
+
+        var story_story_description = new LiveValidation('story_story_description');
+        story_story_description.add( Validate.Presence );
+    });
+</script>

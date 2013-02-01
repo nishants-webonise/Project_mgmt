@@ -16,9 +16,9 @@ class StoriesController < ApplicationController
   # GET /stories/1.json
   def show
     @user = User.find(params[:user_id])
-    @users = User.all
     @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
+    @project_users = @project.users
 
     @tasks = Task.find_all_by_story_id(@story)
 

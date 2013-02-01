@@ -254,7 +254,7 @@
                                   <!--<div class="goog-inline-block goog-flat-menu-button-caption">- Not Assigned -</div>-->
                                   <!--<div class="goog-inline-block goog-flat-menu-button-dropdown">&nbsp;</div>-->
 
-                                <%= select_tag "user", options_from_collection_for_select(@users, "id", "username"), :prompt => "Select someone" %>
+                                <%= select_tag "user", options_from_collection_for_select(@project_users, "id", "username"), :prompt => "Select someone" %>
                                 </div>
                               </div>
                             </td>
