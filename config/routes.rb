@@ -9,6 +9,20 @@ ProjectManagementSystem::Application.routes.draw do
 
   resources :users do
     resources :projects do
+      collection do
+        get :list_projects
+        get :new_project
+        post :create_project
+      end
+
+      member do
+        get :show_project_dashboard
+        get :edit_project
+        put :update_project
+        delete :destroy_project
+        get :add_project_users
+        post :save_project_users
+      end
       resources :stories do
         resources :tasks
       end

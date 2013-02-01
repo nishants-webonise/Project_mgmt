@@ -31,33 +31,7 @@
                         Click the [New Project] button under your name (or company) or, if you
                         were invited to a project, just click on that project.
                       </p>
-
                     </li>
-                    <!-- <li>
-                         <h5>Invite participants</h5>
-                         <p>Click [Invite Participants] on the project page and enter the email addresses of anyone you wish to invite.
-                         They will receive an email prompting them to sign in.</p>
-                       </li>
-                       <li>
-                         <h5>Define some user stories</h5>
-                         <p>
-                           Click on the [Stories] tab for the project and start adding them.
-                         </p>
-                       </li>
-                       <li>
-                         <h5>Schedule them in iterations</h5>
-                         <p>
-                           It's easy, just create one or more iterations and drag and drop stories into them.
-                         </p>
-
-                       </li>
-                       <li>
-                         <h5>Get to work!</h5>
-                         <p>Every story should be defined by a few acceptance tests. To track progress, simply
-                         create some acceptance tests for each story and pass them as you complete them.</p>
-                       </li>
-
-                    -->
                   </ul>
                 </div>
               </div>
@@ -105,7 +79,7 @@
                 <b>My Projects</b>
               </div>
               <div class="project-container-header-right">
-                <%= link_to '+ New Project', new_user_project_path(@user), :class => "btn btn-mini project-container-add" %>
+                <%= link_to '+ New Project', new_project_user_projects_path(@user), :class => "btn btn-mini project-container-add" %>
               </div>
             </div>
 

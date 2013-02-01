@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+
+  before_filter :require_user
   # GET /stories
   # GET /stories.json
   def index
@@ -7,7 +9,7 @@ class StoriesController < ApplicationController
     @stories = Story.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # list_projects.html.erb
       format.json { render json: @stories }
     end
   end
@@ -23,7 +25,7 @@ class StoriesController < ApplicationController
     @tasks = Task.find_all_by_story_id(@story)
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show_project_dashboard.html.erb
       format.json { render json: @story }
     end
   end
@@ -36,7 +38,7 @@ class StoriesController < ApplicationController
     @story = Story.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new_project.html.erb
       format.js
       format.json { render json: @story }
     end

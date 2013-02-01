@@ -42,13 +42,13 @@
     <div class="container">
       <a class="brand" href="/">Project Management System</a>
       <div class="container nav-collapse">
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", "/"  %></li>
-          <li><%= link_to "FAQs", "/"  %></li>
-          <li><%= link_to "Contact Us", "/"  %></li>
-        </ul>
-        <br /><br />
-        <div class="nav pull-right">
+        <!--<ul class="nav pull-right">-->
+          <!--<li><%#= link_to "Home", "/"  %></li>-->
+          <!--<li><%#= link_to "FAQs", "/"  %></li>-->
+          <!--<li><%#= link_to "Contact Us", "/"  %></li>-->
+        <!--</ul>-->
+        <!--<br /><br />-->
+        <div class="nav pull-right user_session">
           <% if current_user %>
               Signed in as <%= current_user.username.capitalize %> |
               <%= link_to "Edit Profile", edit_user_path(current_user.id)%>
@@ -66,7 +66,7 @@
 
 <div class="container">
   <div class="row links">
-    <div class="span9 offset1">
+    <div class="span10 offset1">
 
       <%= bootstrap_flash %>
       <%= yield %>

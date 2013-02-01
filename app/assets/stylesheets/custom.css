@@ -1,5 +1,11 @@
+.navbar .nav.pull-right.user_session{
+    float: right;
+    margin-right: 115px;
+    margin-top: 20px;
+}
+
 .links{
-    margin-top: 50px;
+    margin-top: 36px;
 }
 
 #site-wrapper {

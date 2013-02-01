@@ -29,7 +29,6 @@
   <!--</div>-->
 <%# end %>
 
-
 <div style="-webkit-border-radius: 4px; -moz-border-radius: 4px" id="page">
 
   <div id="breadcrumb-bar">
@@ -50,6 +49,9 @@
     <h2>Create Project</h2>
 
     <%= form_for @project, :url => user_projects_path, :html => { :class => 'form-horizontal' } do |f| %>
+
+        <%= render 'shared/error_messages', :object => f.object %>
+
         <table class="form">
           <tbody><tr>
             <td><%= f.label :project_name, :class => 'control-label' %></td>

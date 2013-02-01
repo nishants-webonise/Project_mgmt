@@ -2,7 +2,7 @@
 
 <%= form_for @user_session, :url => user_sessions_path do |f| %>
 
-    <%= render "shared/error_messages", :target => @user_session %>
+    <%= render "shared/error_messages", :object => @user_session %>
 
     <%= f.label :username %>
     <%= f.text_field :username %><br />

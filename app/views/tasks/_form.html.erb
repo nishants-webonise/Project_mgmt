@@ -1,4 +1,7 @@
 <%= form_for @task, :html => { :class => 'form-horizontal' } do |f| %>
+
+    <%= render 'shared/error_messages', :object => f.object %>
+
   <div class="control-group">
     <%= f.label :task_description, :class => 'control-label' %>
     <div class="controls">

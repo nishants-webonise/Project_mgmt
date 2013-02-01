@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+
+  before_filter :require_user
   # GET /tasks
   # GET /tasks.json
   def index
@@ -8,7 +10,7 @@ class TasksController < ApplicationController
     @tasks = Task.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # list_projects.html.erb
       format.json { render json: @tasks }
     end
   end
@@ -22,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show_project_dashboard.html.erb
       format.json { render json: @task }
     end
   end
@@ -36,7 +38,7 @@ class TasksController < ApplicationController
     @task = Task.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new_project.html.erb
       format.js
       format.json { render json: @task }
     end

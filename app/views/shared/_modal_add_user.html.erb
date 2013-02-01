@@ -7,8 +7,9 @@
   <div class="modal-body modal-dialog-content">
     <div id="add-story-dialog">
 
-      <%= form_tag save_project_users_project_path(@project), :method => :post ,:html => { :class => "form-horizontal"} do %>
+      <%= form_tag save_project_users_project_path(@project), :method => :post ,:html => { :class => "form-horizontal"} do |f| %>
 
+          <%#= render 'shared/error_messages', :object => f.object %>
           <%#= select_tag "user", options_from_collection_for_select(@users, "id", "username"), :prompt => "Select someone" %>
           <table>
 
@@ -23,7 +24,7 @@
 
           <div class="modal-footer modal-dialog-buttons">
 
-            <%= submit_tag 'Add', :class => "btn" %>
+            <%= f.submit 'Add', :class => "btn" %>
             <%= link_to 'Cancel', '#', "data-dismiss" => "modal", :class => "btn" %>
 
           </div>
@@ -32,3 +33,4 @@
   </div>
 
 </div>
+
