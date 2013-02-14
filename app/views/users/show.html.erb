@@ -91,7 +91,7 @@
 
                       <% @projects.each do |proj| %>
                       <tr><td>
-                        <%= link_to proj.project_name, user_project_path(@user, proj.id) %>
+                        <%= link_to proj.project_name, show_project_dashboard_user_project_path(@user, proj.id) %>
                       </td></tr>
                   <% end %>
 

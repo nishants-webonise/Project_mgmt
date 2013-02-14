@@ -20,8 +20,8 @@ ProjectManagementSystem::Application.routes.draw do
         get :edit_project
         put :update_project
         delete :destroy_project
-        get :add_project_users
-        post :save_project_users
+        #get :add_project_users
+        #post :save_project_users
       end
       resources :stories do
         resources :tasks
